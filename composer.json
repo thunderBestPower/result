@@ -1,0 +1,33 @@
+{
+    "name": "escsrl/result",
+    "type": "library",
+    "description": "Response interface",
+    "keywords": ["response", "json"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alessandro Bellanda",
+            "email": "a.bellanda@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Esc\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Esc\\Tests\\": "tests"
+        }
+    },
+    "require": {
+        "php": "^7.1",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.1"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
