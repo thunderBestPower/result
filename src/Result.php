@@ -1,24 +1,28 @@
 <?php
 
-namespace Esc;
-
+namespace BlueWeb;
 
 use JsonSerializable;
 
-/**
- * @author Alessandro Bellanda <a.bellanda@gmail.com>
- */
+
 class Result implements JsonSerializable
 {
-    private $message;
-    private $data;
+    private ?string $message;
+    private ?array $data;
     private $totalRows;
 
-    public function __construct($config = [])
+    /**
+     * @param array $config
+     */
+    public function __construct(array $config = [])
     {
         $this->fromArray($config);
     }
 
+    /**
+     * @param $config
+     * @return void
+     */
     public function fromArray($config): void
     {
         foreach ($config as $name => $value) {
@@ -28,6 +32,9 @@ class Result implements JsonSerializable
         }
     }
 
+    /**
+     * @return array
+     */
     public function toArray(): array
     {
         return [
@@ -37,13 +44,17 @@ class Result implements JsonSerializable
         ];
     }
 
+    /**
+     * @param string|null $message
+     * @return void
+     */
     public function setMessage(?string $message): void
     {
         $this->message = $message;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getMessage(): ?string
     {
@@ -51,7 +62,7 @@ class Result implements JsonSerializable
     }
 
     /**
-     * @return array
+     * @return array|null
      */
     public function getData(): ?array
     {
@@ -64,7 +75,7 @@ class Result implements JsonSerializable
     }
 
     /**
-     * @param array $data
+     * @param array|null $data
      * @return void
      */
     public function setData(?array $data): void
